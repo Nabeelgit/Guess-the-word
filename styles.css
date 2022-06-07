@@ -34,6 +34,10 @@ input[type='text'] {
     display: block;
 }
 
+#letters{
+    font-size: 27px;
+}
+
 .flex {
     margin: 5px 0 0 0;
     display: flex;
@@ -129,6 +133,13 @@ form {
     }
     #word {
         width: 13.5rem;
+    }
+    #container{
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: -webkit-center;
     }
 }
 
