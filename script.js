@@ -10,7 +10,11 @@ window.onload = () => {
     word = word[0];
     if(wordInCompleted(word, completed)){
       play()
-    } else {
+    } 
+    else if(completed.length == words.length){
+      alert("Sorry, we have no more words to give you!")
+    }
+    else {
       completed.push(word)
     }
     let o = document.getElementById("occurences");

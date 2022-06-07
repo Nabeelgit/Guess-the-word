@@ -10,7 +10,7 @@ body {
 }
 
 #word {
-    width: 20.5rem;
+    width: 12rem;
 }
 
 #instructions {
@@ -21,12 +21,41 @@ input[type='text'] {
   font-size: 16px;
 }
 
+@media (max-width:920px){
+    body {
+        zoom: 250%;
+    }
+    #instructions {
+        font-size: 17px;
+    }
+    #word {
+        display: block;
+        width: 12rem;
+        border: solid 0.5px;
+    }
+}
+
 @media (max-width:850px){
     body {
         zoom: 155%;
     }
     #instructions {
         font-size: 20px;
+    }
+    #word {
+        width: 13.5rem;
+    }
+}
+
+@media (max-width:820px){
+    body {
+        zoom: 155%;
+    }
+    #instructions {
+        font-size: 20px;
+    }
+    #word {
+        width: 11.7rem;
     }
 }
 
@@ -36,6 +65,9 @@ input[type='text'] {
     }
     #instructions {
         font-size: 17px;
+    }
+    #word {
+        width: 11.8rem;
     }
 }
 
@@ -55,6 +87,9 @@ input[type='text'] {
     #instructions {
         font-size: 16px;
     }
+    #word {
+        width: 13.5rem;
+    }
 }
 
 @media (max-width: 380px){
@@ -63,6 +98,9 @@ input[type='text'] {
     }
     #instructions {
         font-size: 17px;
+    }
+    #word {
+        width: 12rem;
     }
 }
 
