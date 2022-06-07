@@ -5,20 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess the word</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 </head>
 <body>
     <div id="container">
         <h2>Guess the word <a id="instructions" href="">Instructions</a></h2>
-        <form id="form">
-        <input id="word" type="text" placeholder="Type the letter or the word">
-        <button id="submit">Submit</button>
-        </form>
-        <button id="hint-btn">Give me a hint</button>
-        <button id="oneletter">Give me one letter from the word(You can only use this once)</button>
         <p id="letters"></p>
+        <form id="form">
+        <input id="word" type="text" placeholder="Type the letter or the word" class="form-control">
+        <button id="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="flex">
+        <button id="hint-btn" class="btn btn-warning" style="margin: 0 1px 0 0">Give me a hint</button>
+        <button id="oneletter" class="btn btn-secondary">Give me one letter from the word</button>
+        </div>
         <p id="occurences"></p>
+        <p id="hint"></p>
     </div>
     <canvas style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 1000; pointer-events: none;" width="1165" height="929"></canvas>
     <script src="words.js"></script>

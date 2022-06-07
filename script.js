@@ -1,4 +1,3 @@
-let completed = [];
 window.onload = () => {
   play();
   const canvas = document.querySelector("canvas")
@@ -6,16 +5,12 @@ window.onload = () => {
   function play(){
     trys = 0;
     let word = getRandom();
+    words.push(words.splice(words.indexOf(word), 1)[0]);
+    words.pop();
     let hint = word[1];
     word = word[0];
-    if(wordInCompleted(word, completed)){
-      play()
-    } 
-    else if(completed.length == words.length){
+    if(words.length <= 0){
       alert("Sorry, we have no more words to give you!")
-    }
-    else {
-      completed.push(word)
     }
     let o = document.getElementById("occurences");
     o.innerText = ""
@@ -32,6 +27,8 @@ window.onload = () => {
         document.getElementById("submit").disabled = true;
         document.querySelector("#hint-btn").disabled = true;
         document.getElementById("word").disabled = true;
+        document.getElementById("oneletter").disabled = true;
+        document.getElementById("hint").innerText = ""
         playAgain();
       } else {
       if(guess.value.toLowerCase().trim() === word.toLowerCase()){
@@ -41,6 +38,7 @@ window.onload = () => {
         document.querySelector("#hint-btn").disabled = true;
         document.getElementById("word").disabled = true;
         document.getElementById("oneletter").disabled = true;
+        document.getElementById("hint").innerText = ""
         jsConfetti.addConfetti()
         playAgain();
       } 
@@ -62,6 +60,7 @@ window.onload = () => {
             document.querySelector("#hint-btn").disabled = true;
             document.getElementById("word").disabled = true;
             document.getElementById("oneletter").disabled = true;
+            document.getElementById("hint").innerText = ""
             jsConfetti.addConfetti()
             playAgain();
           }
@@ -78,7 +77,8 @@ window.onload = () => {
     }
   }
     document.querySelector("#hint-btn").onclick = () => {
-      alert("Hint: \n" + hint)
+      document.getElementById("hint").innerText = "Hint: \n " + hint;
+      document.querySelector("#hint-btn").style.display  = "none"
     }
     document.getElementById("oneletter").onclick = () => {
       o.innerText = ""
@@ -89,6 +89,7 @@ window.onload = () => {
         document.getElementById("submit").disabled = true;
         document.querySelector("#hint-btn").disabled = true;
         document.getElementById("word").disabled = true;
+        document.getElementById("hint").innerText = ""
         playAgain();
       } else {
       let m = [];
@@ -120,10 +121,11 @@ window.onload = () => {
   }
   document.querySelector("#instructions").onclick = (e) => {
     e.preventDefault();
-    alert("Instructions \n 1. You will have 10 trys to get the word \n 2. Hints will cause you to lose 1 try \n 3. Press submit after typing the letter you think is in the hidden word \n 4. Type the word if you think you know it \n 5. Using the give me a letter button will cause you to lose 1 try")
+    alert("Instructions \n 1. You will have 10 trys to get the word \n 2. Hints will cause you to lose 1 try \n 3. Press submit after typing the letter you think is in the hidden word \n 4. Type the word if you think you know it \n 5. Using the give me a letter button will cause you to lose 1 try and can be used only once")
   }
   function getRandom(){
-    return words[Math.floor(Math.random() * words.length)]
+    let r = Math.floor(Math.random() * words.length);
+    return words[r]
   }
   function createArray(len, t){
     let arr = [];
@@ -140,26 +142,23 @@ window.onload = () => {
     return st;
   }
   function playAgain(){
+    document.getElementById("hint").innerText = ""
     let p = document.createElement("button");
     p.innerText = "Play again";
+    p.classList.add("btn")
+    p.classList.add("btn-success")
     document.getElementById("container").appendChild(p);
     p.onclick = () => {
       play();
       document.getElementById("container").removeChild(p);
       document.getElementById("submit").disabled = false;
       document.querySelector("#hint-btn").disabled = false;
+      document.querySelector("#hint-btn").style.display  = "block"
       document.getElementById("word").disabled = false;
+      document.getElementById("word").value = "";
       document.getElementById("oneletter").disabled = false;
       document.getElementById("oneletter").style.display = "block"
-    }
-  }
-  function wordInCompleted(word, completed){
-    let s = false;
-    for(let i = 0; i < completed.length; i++){
-      if(word === completed[i]){
-        s = true;
-      }
-      return s;
+      
     }
   }
 }

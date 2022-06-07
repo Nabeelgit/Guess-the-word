@@ -2,15 +2,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    zoom: 270%;
+    zoom: 200%;
 }
 
 #container{
     text-align: -webkit-center;
 }
 
+#submit {
+    margin: 3px 0 0 3px;
+}
 #word {
-    width: 12rem;
+    width: 13.5rem;
 }
 
 #instructions {
@@ -20,6 +23,22 @@ body {
 input[type='text'] {
   font-size: 16px;
 }
+
+#hint-btn {
+    display: block;
+}
+
+.flex {
+    margin: 5px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
 
 @media (max-width:920px){
     body {
@@ -78,6 +97,9 @@ input[type='text'] {
     #instructions {
         font-size: 18px;
     }
+    #word {
+        width: 13.5rem;
+    }
 }
 
 @media (max-width: 450px){
@@ -100,7 +122,7 @@ input[type='text'] {
         font-size: 17px;
     }
     #word {
-        width: 12rem;
+        width: 13.5rem;
     }
 }
 
