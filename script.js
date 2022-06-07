@@ -116,7 +116,7 @@ window.onload = () => {
   }
   document.querySelector("#instructions").onclick = (e) => {
     e.preventDefault();
-    alert("Instructions \n 1.You will have 10 trys to get the word \n 2. Hints will cause you to lose 1 try \n 3. Press submit after typing the letter you think is in the hidden word \n 4. Type the word if you think you know it \n 5. Using the give me a letter button will cause you to lose 1 try")
+    alert("Instructions \n 1. You will have 10 trys to get the word \n 2. Hints will cause you to lose 1 try \n 3. Press submit after typing the letter you think is in the hidden word \n 4. Type the word if you think you know it \n 5. Using the give me a letter button will cause you to lose 1 try")
   }
   function getRandom(){
     return words[Math.floor(Math.random() * words.length)]
