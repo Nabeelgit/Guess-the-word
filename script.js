@@ -18,7 +18,8 @@ window.onload = () => {
     let letters = document.getElementById("letters")
     let arr = createArray(word.length, " _ ");
     letters.innerText = s(arr)
-    document.getElementById("submit").onclick = () => {
+    document.getElementById("form").onsubmit = (e) => {
+      e.preventDefault();
       trys++;
       let guess = document.getElementById("word");
       if(trys >= 10){
@@ -93,7 +94,11 @@ window.onload = () => {
         }
       }
       m = m[Math.floor(Math.random() * m.length)];
-      arr[m] = word[m]
+      for(let n = 0; n < word.length; n++){
+        if(word[n].toLowerCase() == word[m].toLowerCase()){
+          arr[n] = word[n]
+        }
+      }
       letters.innerText = s(arr);
       if(letters.innerText == word){
         o.innerText = "You got the word!"
