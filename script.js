@@ -4,6 +4,8 @@ window.onload = () => {
   const jsConfetti = new JSConfetti({ canvas })
   function play(){
     trys = 0;
+    let incWord = "incorrect-words";
+    let incLetters = "incorrect-letters";
     let word = getRandom();
     words.push(words.splice(words.indexOf(word), 1)[0]);
     words.pop();
@@ -19,7 +21,6 @@ window.onload = () => {
     letters.innerText = s(arr)
     document.getElementById("form").onsubmit = (e) => {
       e.preventDefault();
-      trys++;
       let guess = document.getElementById("word");
       if(trys >= 10){
         letters.innerText = "Sorry, you ran out of trys the word was " + word;
@@ -44,6 +45,7 @@ window.onload = () => {
       } 
       else if(guess.value.trim().length > 1){
         o.innerText = "This was not the word"
+        createNewRow(incWord, guess.value.trim());
       } else{
         if(word.toLowerCase().includes(guess.value.toLowerCase().trim()[0])){
           o.innerText = "";
@@ -67,6 +69,7 @@ window.onload = () => {
         } else {
           if(guess.value.trim()[0] != undefined){
             o.innerHTML = "No occurences of <b>" + guess.value.trim()[0] + "</b> in the hidden word"
+            createNewRow(incLetters, guess.value.trim()[0]);
           }
           else {
             o.innerText = ""
@@ -75,14 +78,23 @@ window.onload = () => {
       }
       guess.value = ""
     }
+    trys++;
+    let trysleft = 10 - trys;
+    document.getElementById("trys-left").innerText = "Trys left: " + trysleft;
   }
     document.querySelector("#hint-btn").onclick = () => {
+      o.innerText = ""
+      trys++
+      let trysleft = 10 - trys;
+      document.getElementById("trys-left").innerText = "Trys left: " + trysleft;
       document.getElementById("hint").innerText = "Hint: \n " + hint;
       document.querySelector("#hint-btn").style.display  = "none"
     }
     document.getElementById("oneletter").onclick = () => {
       o.innerText = ""
-      trys++;
+      trys++
+      let trysleft = 10 - trys;
+      document.getElementById("trys-left").innerText = "Trys left: " + trysleft;
       if(trys >= 10){
         letters.innerText = "Sorry, you ran out of trys the word was " + word;
         o.innerText = ""
@@ -141,7 +153,20 @@ window.onload = () => {
     }
     return st;
   }
+  function createNewRow(table, text){
+    let tbody = document.getElementById(table);
+    let tr = document.createElement("tr");
+    let th = document.createElement("th");
+    th.setAttribute("scope", "row");
+    th.innerText = text;
+    tr.appendChild(th);
+    tbody.appendChild(tr);
+  }
   function playAgain(){
+    let incWord = "incorrect-words";
+    let incLetters = "incorrect-letters";
+    document.getElementById(incLetters).innerHTML = "";
+    document.getElementById(incWord).innerHTML = "";
     document.getElementById("hint").innerText = ""
     let p = document.createElement("button");
     p.innerText = "Play again";
@@ -150,6 +175,7 @@ window.onload = () => {
     document.getElementById("containers").appendChild(p);
     p.onclick = () => {
       play();
+      document.getElementById("trys-left").innerText = "Trys left: 10";
       document.getElementById("containers").removeChild(p);
       document.getElementById("submit").disabled = false;
       document.querySelector("#hint-btn").disabled = false;

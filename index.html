@@ -14,6 +14,7 @@
     <nav class="navbar">
         <div class="container-fluid">
           <h1 class="navbar-brand">Guess the word <a id="instructions" href="">Instructions</a></h1>
+          <p id="trys-left">Trys left: 10</p>
         </div>
       </nav>
     <div id="containers">
@@ -28,6 +29,28 @@
         </div>
         <p id="occurences"></p>
         <p id="hint"></p>
+        <div class="incorrect">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Incorrect Letters</th>
+            </tr>
+          </thead>
+          <tbody id="incorrect-letters">
+            <!-- WORDS -->
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Incorrect words</th>
+            </tr>
+          </thead>
+          <tbody id="incorrect-words">
+            <!-- LETTERS -->
+          </tbody>
+        </table>
+        </div>
     </div>
     <canvas style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 1000; pointer-events: none;" width="1165" height="929"></canvas>
     <script src="words.js"></script>

@@ -3,13 +3,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    zoom: 200%;
+    zoom: 180%;
     overflow: hidden;
 }
 
 #containers{
-    position: absolute;
-    top: 30%;
+    position: absolute; 
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: -webkit-center;
@@ -34,6 +34,11 @@ input[type='text'] {
     display: block;
 }
 
+#hint, #occurences {
+    font-size: 14px;
+}
+
+
 #letters{
     font-size: 27px;
 }
@@ -53,9 +58,28 @@ nav {
     margin-bottom: 100px;
 }
 
+.incorrect {
+    display: flex;
+}
+
+
 @media (max-width:920px){
     body {
         zoom: 250%;
+    }
+    #instructions {
+        font-size: 17px;
+    }
+    #word {
+        display: block;
+        width: 12rem;
+        border: solid 0.5px;
+    }
+}
+
+@media (max-width:880px){
+    body {
+        zoom: 200%;
     }
     #instructions {
         font-size: 17px;
