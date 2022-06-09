@@ -141,13 +141,16 @@ nav {
 
 @media (max-width: 450px){
     body {
-        zoom: 112%;
+        zoom: 0%;
     }
     #instructions {
         font-size: 16px;
     }
     #word {
         width: 13.5rem;
+    }
+    .incorrect {
+        display: inline;
     }
 }
 
