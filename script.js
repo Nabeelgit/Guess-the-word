@@ -147,10 +147,10 @@ window.onload = () => {
     p.innerText = "Play again";
     p.classList.add("btn")
     p.classList.add("btn-success")
-    document.getElementById("container").appendChild(p);
+    document.getElementById("containers").appendChild(p);
     p.onclick = () => {
       play();
-      document.getElementById("container").removeChild(p);
+      document.getElementById("containers").removeChild(p);
       document.getElementById("submit").disabled = false;
       document.querySelector("#hint-btn").disabled = false;
       document.querySelector("#hint-btn").style.display  = "block"

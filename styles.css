@@ -7,7 +7,7 @@ body {
     overflow: hidden;
 }
 
-#container{
+#containers{
     position: absolute;
     top: 30%;
     left: 50%;
@@ -49,6 +49,9 @@ form {
     justify-content: center;
 }
 
+nav {
+    margin-bottom: 100px;
+}
 
 @media (max-width:920px){
     body {
@@ -133,13 +136,6 @@ form {
     }
     #word {
         width: 13.5rem;
-    }
-    #container{
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: -webkit-center;
     }
 }
 
