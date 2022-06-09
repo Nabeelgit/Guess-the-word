@@ -1,18 +1,22 @@
+* {
+    overflow-x: hidden;
+}
+
 body {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     zoom: 180%;
-    overflow: hidden;
 }
 
 #containers{
-    position: absolute; 
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: auto; 
+    display: flex;
+    flex-direction: column;
     text-align: -webkit-center;
+    
 }
 
 #submit {
@@ -54,14 +58,12 @@ form {
     justify-content: center;
 }
 
-nav {
-    margin-bottom: 100px;
-}
-
 .incorrect {
     display: flex;
 }
-
+th {
+    word-wrap: break-word;
+}
 
 @media (max-width:920px){
     body {
@@ -155,14 +157,14 @@ nav {
 }
 
 @media (max-width: 380px){
-    body {
-        zoom: 0%;
-    }
     #instructions {
         font-size: 17px;
     }
     #word {
         width: 13.5rem;
+    }
+    .incorrect {
+        display: flex;
     }
 }
 
